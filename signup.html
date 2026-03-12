@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | Voyara</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-card">
+      <h1>Create your account</h1>
+      <p>Sign up to save preferences and book trips quickly.</p>
+      <form id="signupForm" class="auth-form">
+        <label for="signupName">Name</label>
+        <input id="signupName" name="name" type="text" minlength="2" required />
+        <label for="signupEmail">Email</label>
+        <input id="signupEmail" name="email" type="email" required />
+        <label for="signupPassword">Password</label>
+        <input id="signupPassword" name="password" type="password" minlength="6" required />
+        <button type="submit">Create Account</button>
+        <p id="signupMessage" class="auth-message"></p>
+      </form>
+      <p class="auth-link">Already have an account? <a href="login.html">Login</a></p>
+    </main>
+    <script src="auth.js"></script>
+    <script src="signup.js"></script>
+  </body>
+</html>

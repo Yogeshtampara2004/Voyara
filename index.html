@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyara | Explore & Book Trips</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="top-nav container">
+        <a class="brand" href="index.html">Voyara</a>
+        <div class="nav-actions" id="authNav"></div>
+      </nav>
+      <div class="container hero-content">
+        <p class="eyebrow">Plan better trips</p>
+        <h1>Travel booking that feels effortless.</h1>
+        <p class="subtitle">
+          Search destinations, apply smart filters, and book your next getaway in seconds.
+        </p>
+      </div>
+    </header>
+
+    <main class="container" id="appRoot">
+      <section class="controls" aria-label="Search and filters">
+        <div class="control-group">
+          <label for="searchInput">Search destination</label>
+          <input id="searchInput" type="text" placeholder="e.g., Bali, Paris" />
+        </div>
+        <div class="control-group">
+          <label for="typeFilter">Trip type</label>
+          <select id="typeFilter">
+            <option value="all">All</option>
+            <option value="Beach">Beach</option>
+            <option value="City">City</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Nature">Nature</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="budgetFilter">Budget</label>
+          <select id="budgetFilter">
+            <option value="all">All</option>
+            <option value="low">Under $1000</option>
+            <option value="mid">$1000 - $2000</option>
+            <option value="high">Above $2000</option>
+          </select>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Popular packages</h2>
+          <p id="resultsCount" class="results-count"></p>
+        </div>
+        <div id="packageGrid" class="package-grid"></div>
+      </section>
+    </main>
+
+    <template id="cardTemplate">
+      <article class="card">
+        <img class="card-image" alt="" />
+        <div class="card-content">
+          <h3 class="card-title"></h3>
+          <p class="card-meta"></p>
+          <p class="card-price"></p>
+          <button class="book-btn" type="button">Book Now</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
