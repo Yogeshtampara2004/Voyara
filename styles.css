@@ -1,0 +1,155 @@
+:root {
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --ring: #93c5fd;
+  --radius: 14px;
+  --shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.hero p {
+  margin-top: 0.75rem;
+  color: #e2e8f0;
+}
+
+main {
+  padding: 2rem 0 3rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  background: var(--surface);
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: -2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input,
+select {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.72rem 0.8rem;
+  font-size: 0.95rem;
+  background-color: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid var(--ring);
+  border-color: var(--primary);
+}
+
+.results-count {
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.package-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card-meta {
+  margin: 0.5rem 0;
+  color: var(--muted);
+}
+
+.card-price {
+  margin: 0.35rem 0 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.book-btn {
+  width: 100%;
+  border: none;
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.68rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.no-results {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .controls {
+    grid-template-columns: 1fr;
+    margin-top: -2rem;
+  }
+}
