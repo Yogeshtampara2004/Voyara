@@ -1,24 +1,12 @@
 const trips = [
-  { destination: 'Bali, Indonesia', type: 'Beach', price: 899, nights: 5, image: 'images/beach.svg' },
-  { destination: 'Paris, France', type: 'City', price: 1799, nights: 6, image: 'images/city.svg' },
-  {
-    destination: 'Swiss Alps, Switzerland',
-    type: 'Nature',
-    price: 2499,
-    nights: 7,
-    image: 'images/nature.svg',
-  },
-  { destination: 'Dubai, UAE', type: 'City', price: 1399, nights: 4, image: 'images/city.svg' },
-  {
-    destination: 'Queenstown, New Zealand',
-    type: 'Adventure',
-    price: 2699,
-    nights: 8,
-    image: 'images/adventure.svg',
-  },
-  { destination: 'Maldives', type: 'Beach', price: 2299, nights: 5, image: 'images/beach.svg' },
-  { destination: 'Rishikesh, India', type: 'Adventure', price: 699, nights: 4, image: 'images/adventure.svg' },
-  { destination: 'Kyoto, Japan', type: 'Nature', price: 1599, nights: 6, image: 'images/nature.svg' },
+  { destination: 'Bali, Indonesia', type: 'Beach', price: 899, nights: 5 },
+  { destination: 'Paris, France', type: 'City', price: 1799, nights: 6 },
+  { destination: 'Swiss Alps, Switzerland', type: 'Nature', price: 2499, nights: 7 },
+  { destination: 'Dubai, UAE', type: 'City', price: 1399, nights: 4 },
+  { destination: 'Queenstown, New Zealand', type: 'Adventure', price: 2699, nights: 8 },
+  { destination: 'Maldives', type: 'Beach', price: 2299, nights: 5 },
+  { destination: 'Rishikesh, India', type: 'Adventure', price: 699, nights: 4 },
+  { destination: 'Kyoto, Japan', type: 'Nature', price: 1599, nights: 6 },
 ];
 
 const searchInput = document.getElementById('searchInput');
@@ -27,27 +15,6 @@ const budgetFilter = document.getElementById('budgetFilter');
 const packageGrid = document.getElementById('packageGrid');
 const resultsCount = document.getElementById('resultsCount');
 const cardTemplate = document.getElementById('cardTemplate');
-const authNav = document.getElementById('authNav');
-const activeUser = window.voyaraAuth.currentUser();
-
-function setAuthNav() {
-  if (activeUser) {
-    authNav.innerHTML = `
-      <span class="welcome">Hi, ${activeUser.name}</span>
-      <button id="logoutBtn" class="nav-btn" type="button">Logout</button>
-    `;
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      window.voyaraAuth.logout();
-      window.location.href = 'login.html';
-    });
-    return;
-  }
-
-  authNav.innerHTML = `
-    <a class="nav-btn ghost" href="login.html">Login</a>
-    <a class="nav-btn" href="signup.html">Sign Up</a>
-  `;
-}
 
 function getBudgetBand(price) {
   if (price < 1000) return 'low';
@@ -85,21 +52,9 @@ function renderTrips() {
 
   filtered.forEach((trip) => {
     const clone = cardTemplate.content.cloneNode(true);
-    clone.querySelector('.card-image').src = trip.image;
-    clone.querySelector('.card-image').alt = `${trip.destination} preview`;
     clone.querySelector('.card-title').textContent = trip.destination;
     clone.querySelector('.card-meta').textContent = `${trip.type} • ${trip.nights} nights`;
     clone.querySelector('.card-price').textContent = `$${trip.price.toLocaleString()}`;
-
-    const bookBtn = clone.querySelector('.book-btn');
-    bookBtn.addEventListener('click', () => {
-      if (!activeUser) {
-        window.location.href = 'login.html';
-        return;
-      }
-      alert(`Thanks ${activeUser.name}! Your booking request for ${trip.destination} is received.`);
-    });
-
     packageGrid.appendChild(clone);
   });
 }
@@ -109,5 +64,4 @@ function renderTrips() {
   control.addEventListener('change', renderTrips);
 });
 
-setAuthNav();
 renderTrips();
