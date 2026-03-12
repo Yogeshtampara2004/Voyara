@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'>
+<rect width='800' height='500' fill='#1e293b'/>
+<rect y='320' width='800' height='180' fill='#0f172a'/>
+<rect x='70' y='160' width='110' height='200' fill='#334155'/><rect x='230' y='120' width='130' height='240' fill='#475569'/><rect x='420' y='90' width='150' height='270' fill='#334155'/><rect x='620' y='180' width='100' height='180' fill='#475569'/>
+<g fill='#facc15'>
+<rect x='90' y='190' width='18' height='18'/><rect x='120' y='190' width='18' height='18'/><rect x='260' y='150' width='18' height='18'/><rect x='290' y='150' width='18' height='18'/><rect x='450' y='120' width='18' height='18'/><rect x='480' y='120' width='18' height='18'/><rect x='650' y='210' width='18' height='18'/>
+</g>
+<circle cx='690' cy='80' r='35' fill='#e2e8f0'/>
+</svg>
